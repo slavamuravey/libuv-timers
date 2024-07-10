@@ -10,12 +10,9 @@ int uv_run(uv_loop_t* loop, uv_run_mode mode) {
   int has_active_handles;
 
   has_active_handles = uv__loop_alive(loop);
-  if (!has_active_handles) {
-    uv__update_time(loop);
-  }
+  uv__update_time(loop);
 
   if (has_active_handles) {
-    uv__update_time(loop);
     uv__run_timers(loop);
   }
 

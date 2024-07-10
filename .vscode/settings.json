@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "uv.h": "c",
+        "stdatomic.h": "c",
+        "errno.h": "c",
+        "stddef.h": "c",
+        "array": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp",
+        "string_view": "cpp",
+        "queue.h": "c",
+        "internal.h": "c",
+        "heap-inl.h": "c",
+        "uv-common.h": "c"
+    }
+}

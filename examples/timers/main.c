@@ -2,12 +2,22 @@
 
 #include <uv.h>
 
+uv_timer_t timer3;
+
+void timer3_callback(uv_timer_t *handle);
+
 void timer1_callback(uv_timer_t *handle) {
     fprintf(stdout, "timer1 callback invoked\n");
 }
 
 void timer2_callback(uv_timer_t *handle) {
+    uv_timer_init(handle->loop, &timer3);
+    uv_timer_start(&timer3, timer3_callback, 1000, 0);
     fprintf(stdout, "timer2 callback invoked\n");
+}
+
+void timer3_callback(uv_timer_t *handle) {
+    fprintf(stdout, "timer3 callback invoked\n");
 }
 
 int main() {

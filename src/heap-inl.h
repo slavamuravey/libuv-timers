@@ -35,7 +35,6 @@ HEAP_EXPORT(void heap_init(struct heap* heap));
 HEAP_EXPORT(struct heap_node* heap_min(const struct heap* heap));
 HEAP_EXPORT(void heap_insert(struct heap* heap, struct heap_node* newnode, heap_compare_fn less_than));
 HEAP_EXPORT(void heap_remove(struct heap* heap, struct heap_node* node, heap_compare_fn less_than));
-HEAP_EXPORT(void heap_dequeue(struct heap* heap, heap_compare_fn less_than));
 
 /* Implementation follows. */
 
@@ -222,10 +221,6 @@ HEAP_EXPORT(void heap_remove(struct heap* heap, struct heap_node* node, heap_com
   while (child->parent != NULL && less_than(child, child->parent)) {
     heap_node_swap(heap, child->parent, child);
   }
-}
-
-HEAP_EXPORT(void heap_dequeue(struct heap* heap, heap_compare_fn less_than)) {
-  heap_remove(heap, heap->min, less_than);
 }
 
 #undef HEAP_EXPORT

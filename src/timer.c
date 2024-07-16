@@ -62,11 +62,11 @@ int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_
   handle->start_id = handle->loop->timer_counter++;
 
   heap_insert(timer_heap(handle->loop), (struct heap_node*) &handle->node.heap, timer_less_than);
-  if ((handle->flags & UV_HANDLE_ACTIVE) != 0) {
+  if (handle->flags & UV_HANDLE_ACTIVE) {
     return 0;          
   }                
   handle->flags |= UV_HANDLE_ACTIVE;                                           
-  if ((handle->flags & UV_HANDLE_REF) != 0) {
+  if (handle->flags & UV_HANDLE_REF) {
     handle->loop->active_handles++;
   }
 
@@ -77,7 +77,7 @@ int uv_timer_stop(uv_timer_t* handle) {
   if (handle->flags & UV_HANDLE_ACTIVE) {
     heap_remove(timer_heap(handle->loop), (struct heap_node*) &handle->node.heap, timer_less_than);
     handle->flags &= ~UV_HANDLE_ACTIVE;                                          
-    if ((handle->flags & UV_HANDLE_REF) != 0) {
+    if (handle->flags & UV_HANDLE_REF) {
       handle->loop->active_handles--;        
     }
   } else {

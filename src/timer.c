@@ -32,7 +32,6 @@ static int timer_less_than(const struct heap_node* ha, const struct heap_node* h
 int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle) {
   ((uv_handle_t*)handle)->loop = loop;                                                      
   ((uv_handle_t*)handle)->flags = UV_HANDLE_REF;  /* Ref the loop when active. */              
-  uv__queue_insert_tail(&loop->handle_queue, &((uv_handle_t*)handle)->handle_queue);        
 
   handle->timer_cb = NULL;
   handle->timeout = 0;

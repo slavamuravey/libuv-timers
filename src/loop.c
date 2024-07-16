@@ -6,7 +6,6 @@ int uv_loop_init(uv_loop_t* loop) {
   int err;
 
   heap_init((struct heap*) &loop->timer_heap);
-  uv__queue_init(&loop->handle_queue);
 
   loop->active_handles = 0;
   uv__update_time(loop);

@@ -21,7 +21,6 @@ typedef struct uv_timer_s uv_timer_t;
 struct uv_loop_s {
   /* Loop reference counting. */
   unsigned int active_handles;
-  struct uv__queue handle_queue;
   unsigned long flags;                                                        
   int backend_fd;                                                             
   struct {                                                                    
@@ -35,7 +34,6 @@ struct uv_loop_s {
 /* The abstract base class of all handles. */
 struct uv_handle_s {
   uv_loop_t* loop;                                                            
-  struct uv__queue handle_queue;                                              
   unsigned int flags;                                                    
 };
 
@@ -48,7 +46,6 @@ typedef void (*uv_timer_cb)(uv_timer_t* handle);
  */
 struct uv_timer_s {
   uv_loop_t* loop;
-  struct uv__queue handle_queue;                                                            
   unsigned int flags;
   
   uv_timer_cb timer_cb;                                                      

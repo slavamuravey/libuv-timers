@@ -31,6 +31,7 @@ int main() {
     uv_unref((uv_handle_t*) &timer1);
 
     uv_timer_start(&timer1, timer1_callback, 0, 2000);
+    uv_timer_stop(&timer1);
 
     uv_timer_init(&loop, &timer2);
     uv_timer_start(&timer2, timer2_callback, 9000, 0);

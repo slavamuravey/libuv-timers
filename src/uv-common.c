@@ -2,7 +2,7 @@
 #include "uv-common.h"
 
 void uv_unref(uv_handle_t* handle) {
-  if ((handle->flags & UV_HANDLE_REF) == 0) {
+  if (!(handle->flags & UV_HANDLE_REF)) {
     return;
   }                       
   

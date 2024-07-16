@@ -13,6 +13,7 @@
         "queue.h": "c",
         "internal.h": "c",
         "heap-inl.h": "c",
-        "uv-common.h": "c"
+        "uv-common.h": "c",
+        "epoll.h": "c"
     }
 }

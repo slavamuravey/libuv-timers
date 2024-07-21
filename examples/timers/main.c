@@ -16,10 +16,12 @@ int main() {
   uv_loop_t loop;
   struct timer timers[] = {
     { timeout: 6000 }, 
+    { timeout: 2000 },
     { timeout: 3000 },
     { timeout: 2000 },
     { timeout: 1000 },
     { timeout: 4000 },
+    { timeout: 2000 },
     { timeout: 5000 },
   };
 

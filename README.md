@@ -1,5 +1,5 @@
 # libuv-timers
-Here I explore how libuv timers works
+Here I explore how libuv timers work
 
 ### Build
 ```
